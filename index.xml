@@ -2,13 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog Title</title>
-    <link>http://nodejh.com/</link>
+    <link>https://c1awn.github.io/</link>
     <description>Recent content on Blog Title</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	<atom:link href="http://nodejh.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://c1awn.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://c1awn.github.io/2017-8-3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://c1awn.github.io/2017-8-3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-/</guid>
+      <description>学习任务 一周第四次课（8月3日）
+1.13 单用户模式
+1.14 救援模式
+1.15 克隆虚拟机
+1.16 Linux机器相互登录
+ 学习笔记 1. 单用户模式（适用于没有设置grub密码，忘记root密码的情景） 重启进入系统选择项，上下键选择，一定要选择第一个，按e进入编辑
+将上图的横线部分修改为下图 ，crt+x重启
+重启后需要执行以下命令：
+chroot /sysroot/ 切换到原系统下面 passwd root 更改密码 LANG=en 切换语言 避免乱码 touch /.autorelable 不做此操作不能进入系统  至此，root密码修改成功
+  2. 救援模式（适用于设置了grub密码，也忘了root密码的情景） 相当于进光盘系统来修改密码
+系统关机，设置：启动时进入BIOS或者固件，重启，按照图示进入rescue a cent os linux
+到达上图后，注意：
+chroot /mnt/sysimage #进去原系统，不做这步操作直接修改密码就像提示不成功 passwd root #修改密码  修改完密码重新进入BIOS修改启动项
+3. 克隆虚拟机系统（快速“安装系统”） 关机，进虚拟机管理/克隆，选择快速创建链接克隆就行
+克隆完成，开机克隆系统，因为2台系统共用一个ip和UUID，会冲突。可以修改克隆系统的ip，同时注释掉克隆系统的UUID。IP可以就修改最后一个数字。
+修改完重启网络服务。
+为了便于分辨，可以修改主机名
+hostnamectl set-hostname XXX #修改主机名  此外，因为是克隆，所以密钥不变，xshell只需要新建一个ip连接，选择密钥认证。
+4. Linux互连（ip互连，密钥互连） 需求：testos2连接testos1
+1. ip连接</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://c1awn.github.io/2017-8-4%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://c1awn.github.io/2017-8-4%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>## 学习任务 一周第五次课（8月4日）
+2.1&amp;frasl;2.2 系统目录结构
+2.3 ls命令
+2.4 文件类型
+2.5 alias命令
+ 学习笔记 1. 给登陆成功增加提示，比如佛祖图像 需要编辑 /etc/motd ,把佛祖图像复制进去
+  2. 系统目录结构  插一句之前的密钥验证，root用户的公钥放在/root/.ssh/authorized_keys下面，普通用户的公钥要放在/home/user/.ssh/authorized_keys下面
+[root@test1 ~]# ls / #查看根目录下的文件和目录 bin dev home lib64 mnt proc run srv tmp var boot etc lib media opt root sbin sys usr  #ls可以列举，ls -l列举更详细的信息，其中ll等同于ls -l
+tree命令可以树状图查看目录下的内容，下图是tree查看/网卡配置目录
+ /bin/ /sbin/ /usr/bin/ /usr/sbin这四个目录放着各种命令
+/： 根目录，一般根目录下只存放目录，不要存放文件，/etc、/bin、/dev、/lib、/sbin应该和根目录放置在一个分区中 /bin:/usr/bin: 可执行二进制文件的目录，如常用的命令ls、tar、mv、cat等。 /boot： 放置linux系统启动时用到的一些文件。/boot/vmlinuz为linux的内核文件，以及/boot/gurb。建议单独分区，分区大小100M即可 /dev： 存放linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备，常用的是挂载光驱mount /dev/cdrom /mnt。 /etc： 系统配置文件存放的目录，不建议在此目录下存放可执行文件，重要的配置文件有/etc/inittab、/etc/fstab、/etc/init.</description>
+    </item>
     
   </channel>
 </rss>

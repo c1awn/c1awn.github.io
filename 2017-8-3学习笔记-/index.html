@@ -1,0 +1,218 @@
+    <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Hugo">
+		<meta name="description" content="Blog Description">
+		<meta name="generator" content="Hugo 0.25.1" />
+		<title> &middot; Blog Title</title>
+		<link rel="shortcut icon" href="https://c1awn.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://c1awn.github.io/css/style.css">
+		<link rel="stylesheet" href="https://c1awn.github.io/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://c1awn.github.io/css/font-awesome.min.css">
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://c1awn.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://c1awn.github.io/post'>Archive</a>
+	<a href='https://c1awn.github.io/tags'>Tags</a>
+	<a href='https://c1awn.github.io/about'>About</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>
+                        
+                    </h1>
+                    <h2 class="headline">
+                    Jan 1, 0001 00:00
+                    · 115 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    
+
+<ul>
+<li><h2 id="学习任务">学习任务</h2>
+
+<p>一周第四次课（8月3日）<br />
+1.13 单用户模式<br />
+1.14 救援模式<br />
+1.15 克隆虚拟机<br />
+1.16 Linux机器相互登录</p></li>
+
+<li><h2 id="学习笔记">学习笔记</h2>
+
+<h3 id="1-单用户模式-适用于没有设置grub密码-忘记root密码的情景">1. 单用户模式（适用于没有设置grub密码，忘记root密码的情景）</h3>
+
+<p>重启进入系统选择项，上下键选择，一定要选择第一个，按e进入编辑<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/73285416.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/66216198.jpg" alt="" /><br />
+将上图的横线部分修改为下图 ，crt+x重启<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/22051118.jpg" alt="" /><br />
+重启后需要执行以下命令：</p>
+
+<pre><code>chroot /sysroot/ 切换到原系统下面
+passwd root 更改密码
+LANG=en 切换语言 避免乱码
+touch /.autorelable 不做此操作不能进入系统
+</code></pre>
+
+<p><img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/49395770.jpg" alt="" /><br />
+至此，root密码修改成功</p></li>
+</ul>
+
+<h3 id="2-救援模式-适用于设置了grub密码-也忘了root密码的情景">2. 救援模式（适用于设置了grub密码，也忘了root密码的情景）</h3>
+
+<p><strong>相当于进光盘系统来修改密码</strong><br />
+系统关机，设置：启动时进入BIOS或者固件，重启，按照图示进入rescue a cent os linux<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/28806306.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/88599354.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/92795500.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/61277525.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/16176683.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/77434145.jpg" alt="" /><br />
+到达上图后，注意：</p>
+
+<pre><code>chroot /mnt/sysimage  #进去原系统，不做这步操作直接修改密码就像提示不成功 
+passwd root  #修改密码
+</code></pre>
+
+<p>修改完密码重新进入BIOS修改启动项<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/44425799.jpg" alt="" /></p>
+
+<h3 id="3-克隆虚拟机系统-快速-安装系统">3. 克隆虚拟机系统（快速“安装系统”）</h3>
+
+<p>关机，进虚拟机管理/克隆，选择快速创建链接克隆就行<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/94286837.jpg" alt="" /><br />
+克隆完成，开机克隆系统，因为2台系统共用一个ip和UUID，会冲突。可以修改克隆系统的ip，同时注释掉克隆系统的UUID。IP可以就修改最后一个数字。<br />
+修改完重启网络服务。<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/24685057.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/59589422.jpg" alt="" /><br />
+为了便于分辨，可以修改主机名</p>
+
+<pre><code>hostnamectl set-hostname XXX #修改主机名
+</code></pre>
+
+<p><img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/7604667.jpg" alt="" /><br />
+此外，因为是克隆，所以密钥不变，xshell只需要新建一个ip连接，选择密钥认证。<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/33363005.jpg" alt="" /></p>
+
+<h3 id="4-linux互连-ip互连-密钥互连">4. Linux互连（ip互连，密钥互连）</h3>
+
+<p><img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/29393941.jpg" alt="" /><br />
+需求：testos2连接testos1<br />
+1. ip连接</p>
+
+<pre><code>ssh -p 22 root@192.168.80.130 #-p指定22端口
+</code></pre>
+
+<p><img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/56003101.jpg" alt="" /><br />
+ip连接需要输入root密码，w可查看来源IP<br />
+2. 密钥验证<br />
+<strong>2如果想连1，那需要生成密钥对，公钥放1，私钥放2，所以需要在2上生成密钥对。</strong><br />
+&gt;ssh-keygen #生成密钥对</p>
+
+<p>下图可知密钥存放路径<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/57523293.jpg" alt="" /><br />
+查看2中生成的公钥，复制到1的authorized_keys<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/88280787.jpg" alt="" /><br />
+下图是3个公钥<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/51774498.jpg" alt="" /><br />
+此时在用IP登陆就需要输入密钥密码<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/96541258.jpg" alt="" /><br />
+登陆后主机名由test2成test1<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-3/23139145.jpg" alt="" /></p>
+
+<p><strong>扩展：去掉ssh密钥密码</strong><br />
+之前2系统密钥连接1,设置了passphrase，每次连接要输入密码比较麻烦，要取消密码看下面：</p>
+
+<pre><code class="language-1">[root@test2 ~]# openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa_new 
+#使用openssl命令去掉私钥的密码
+Enter pass phrase for /root/.ssh/id_rsa:
+writing RSA key
+[root@test2 ~]# mv ~/.ssh/id_rsa ~/.ssh/id_rsa.backup  #备份旧私钥
+[root@test2 ~]# mv ~/.ssh/id_rsa_new ~/.ssh/id_rsa   #启用新私钥
+[root@test2 ~]# chmod 600 ~/.ssh/id_rsa  #设置权限 
+</code></pre>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="your_facebook_link">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="your_github_link">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="your_twitter_link">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2017 <i class="fa fa-heart" aria-hidden="true"></i> Hugo
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://c1awn.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://c1awn.github.io/js/main.js"></script>
+<script src="https://c1awn.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

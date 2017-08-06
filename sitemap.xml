@@ -3,17 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://nodejh.com/</loc>
+    <loc>https://c1awn.github.io/2017-8-3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-/</loc>
+  </url>
+  
+  <url>
+    <loc>https://c1awn.github.io/2017-8-4%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+  </url>
+  
+  <url>
+    <loc>https://c1awn.github.io/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://nodejh.com/categories/</loc>
+    <loc>https://c1awn.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://nodejh.com/tags/</loc>
+    <loc>https://c1awn.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   

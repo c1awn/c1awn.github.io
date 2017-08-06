@@ -1,0 +1,302 @@
+    <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Hugo">
+		<meta name="description" content="Blog Description">
+		<meta name="generator" content="Hugo 0.25.1" />
+		<title> &middot; Blog Title</title>
+		<link rel="shortcut icon" href="https://c1awn.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://c1awn.github.io/css/style.css">
+		<link rel="stylesheet" href="https://c1awn.github.io/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://c1awn.github.io/css/font-awesome.min.css">
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://c1awn.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://c1awn.github.io/post'>Archive</a>
+	<a href='https://c1awn.github.io/tags'>Tags</a>
+	<a href='https://c1awn.github.io/about'>About</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>
+                        
+                    </h1>
+                    <h2 class="headline">
+                    Jan 1, 0001 00:00
+                    · 805 words
+                    · 4 minutes read
+                      <span class="tags">
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    
+
+<ul>
+<li>## 学习任务
+一周第五次课（8月4日）<br />
+2.<sup>1</sup>&frasl;<sub>2</sub>.2 系统目录结构<br />
+2.3 ls命令<br />
+2.4 文件类型<br />
+2.5 alias命令<br /></li>
+
+<li><h2 id="学习笔记">学习笔记</h2>
+
+<h3 id="1-给登陆成功增加提示-比如佛祖图像">1. 给登陆成功增加提示，比如佛祖图像</h3>
+
+<p><img src="http://os9ep64t2.bkt.clouddn.com/17-8-4/63514632.jpg" alt="" /><br />
+需要编辑 /etc/motd ,把佛祖图像复制进去</p></li>
+</ul>
+
+<h3 id="2-系统目录结构">2. 系统目录结构</h3>
+
+<blockquote>
+<p>插一句之前的密钥验证，root用户的公钥放在/root/.ssh/authorized_keys下面，普通用户的公钥要放在/home/user/.ssh/authorized_keys下面</p>
+
+<pre><code>[root@test1 ~]# ls / #查看根目录下的文件和目录
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+</code></pre>
+
+<p>#ls可以列举，ls -l列举更详细的信息，其中ll等同于ls -l<br />
+tree命令可以树状图查看目录下的内容，下图是tree查看/网卡配置目录<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-4/78952298.jpg" alt="" /></p>
+</blockquote>
+
+<p>/bin/ /sbin/  /usr/bin/  /usr/sbin这四个目录放着各种命令<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-4/66648919.jpg" alt="" /></p>
+
+<pre><code>/： 根目录，一般根目录下只存放目录，不要存放文件，/etc、/bin、/dev、/lib、/sbin应该和根目录放置在一个分区中
+/bin:/usr/bin: 可执行二进制文件的目录，如常用的命令ls、tar、mv、cat等。
+/boot： 放置linux系统启动时用到的一些文件。/boot/vmlinuz为linux的内核文件，以及/boot/gurb。建议单独分区，分区大小100M即可
+/dev： 存放linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备，常用的是挂载光驱mount /dev/cdrom /mnt。
+/etc： 系统配置文件存放的目录，不建议在此目录下存放可执行文件，重要的配置文件有/etc/inittab、/etc/fstab、/etc/init.d、/etc/X11、/etc/sysconfig、/etc/xinetd.d修改配置文件之前记得备份。注：/etc/X11存放与x windows有关的设置。
+/home： 系统默认的用户家目录，新增用户账号时，用户的家目录都存放在此目录下，~表示当前用户的家目录，~test表示用户test的家目录。建议单独分区，并设置较大的磁盘空间，方便用户存放数据
+/lib:/usr/lib:/usr/local/lib： 系统使用的函数库的目录，程序在执行过程中，需要调用一些额外的参数时需要函数库的协助，比较重要的目录为/lib/modules。
+/lost+fount： 系统异常产生错误时，会将一些遗失的片段放置于此目录下，通常这个目录会自动出现在装置目录下。如加载硬盘于/disk 中，此目录下就会自动产生目录/disk/lost+found
+/mnt:/media： 光盘默认挂载点，通常光盘挂载于/mnt/cdrom下，也不一定，可以选择任意位置进行挂载。
+/proc： 此目录的数据都在内存中，如系统核心，外部设备，网络状态，由于数据都存放于内存中，所以不占用磁盘空间，比较重要的目录有/proc/cpuinfo、/proc/interrupts、/proc/dma、/proc/ioports、/proc/net/*等
+/root： 系统管理员root的家目录，系统第一个启动的分区为/，所以最好将/root和/放置在一个分区下。
+/sbin:/usr/sbin:/usr/local/sbin： 放置系统管理员使用的可执行命令，如fdisk、shutdown、mount等。与/bin不同的是，这几个目录是给系统管理员root使用的命令，一般用户只能&quot;查看&quot;而不能设置和使用。
+/tmp： 一般用户或正在执行的程序临时存放文件的目录,任何人都可以访问,重要数据不可放置在此目录下
+/usr： 应用程序存放目录，/usr/bin 存放应用程序， /usr/share 存放共享数据，/usr/lib 存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。/usr/local:存放软件升级包。/usr/share/doc: 系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录，使用 man ls时会查询/usr/share/man/man1/ls.1.gz的内容建议单独分区，设置较大的磁盘空间
+/var： 放置系统执行过程中经常变化的文件，如随时更改的日志文件 /var/log，/var/log/message： 所有的登录文件存放目录，/var/spool/mail： 邮件存放的目录， /var/run: 程序或服务启动
+
+后，其PID存放在该目录下。建议单独分区，设置较大的磁盘空间
+</code></pre>
+
+<h3 id="3-ls命令">3.ls命令</h3>
+
+<p><img src="http://os9ep64t2.bkt.clouddn.com/17-8-4/15497566.jpg" alt="" /></p>
+
+<pre><code>[root@test1 ~]# ls -la
+总用量 28
+dr-xr-x---.  3 root root  147 8月   2 21:13 .
+dr-xr-xr-x. 17 root root  264 8月   3 21:19 ..
+-rw-------.  1 root root 1406 8月   1 21:30 anaconda-ks.cfg
+-rw-------.  1 root root 3613 8月   4 20:32 .bash_history
+-rw-r--r--.  1 root root   18 12月 29 2013 .bash_logout
+-rw-r--r--.  1 root root  176 12月 29 2013 .bash_profile
+-rw-r--r--.  1 root root  176 12月 29 2013 .bashrc
+-rw-r--r--.  1 root root  100 12月 29 2013 .cshrc
+drwx------.  2 root root   80 8月   3 23:07 .ssh
+-rw-r--r--.  1 root root  129 12月 29 2013 .tcshrc
+[root@test1 ~]# ls -lta
+总用量 28
+-rw-------.  1 root root 3613 8月   4 20:32 .bash_history
+drwx------.  2 root root   80 8月   3 23:07 .ssh
+dr-xr-xr-x. 17 root root  264 8月   3 21:19 ..
+dr-xr-x---.  3 root root  147 8月   2 21:13 .
+-rw-------.  1 root root 1406 8月   1 21:30 anaconda-ks.cfg
+-rw-r--r--.  1 root root   18 12月 29 2013 .bash_logout
+-rw-r--r--.  1 root root  176 12月 29 2013 .bash_profile
+-rw-r--r--.  1 root root  176 12月 29 2013 .bashrc
+-rw-r--r--.  1 root root  100 12月 29 2013 .cshrc
+-rw-r--r--.  1 root root  129 12月 29 2013 .tcshrc
+</code></pre>
+
+<p>#ls -la查看所有文件详细（包括隐藏文件），ls -lta给列举的按实际排序</p>
+
+<pre><code>[root@test1 ~]# ls -ld /
+dr-xr-xr-x. 17 root root 264 8月   3 21:19 /
+[root@test1 ~]# ls -l /
+总用量 20
+lrwxrwxrwx.   1 root root    7 8月   1 21:25 bin -&gt; usr/bin
+dr-xr-xr-x.   4 root root 4096 8月   1 21:42 boot
+drwxr-xr-x   19 root root 3160 8月   4 20:28 dev
+drwxr-xr-x.  78 root root 8192 8月   4 20:32 etc
+drwxr-xr-x.   2 root root    6 11月  5 2016 home
+lrwxrwxrwx.   1 root root    7 8月   1 21:25 lib -&gt; usr/lib
+lrwxrwxrwx.   1 root root    9 8月   1 21:25 lib64 -&gt; usr/lib64
+drwxr-xr-x.   2 root root    6 11月  5 2016 media
+drwxr-xr-x.   2 root root    6 11月  5 2016 mnt
+drwxr-xr-x.   2 root root    6 11月  5 2016 opt
+dr-xr-xr-x  106 root root    0 8月   4 20:28 proc
+dr-xr-x---.   3 root root  147 8月   2 21:13 root
+drwxr-xr-x   21 root root  580 8月   4 21:54 run
+lrwxrwxrwx.   1 root root    8 8月   1 21:25 sbin -&gt; usr/sbin
+drwxr-xr-x.   2 root root    6 11月  5 2016 srv
+dr-xr-xr-x   13 root root    0 8月   4 20:28 sys
+drwxrwxrwt.  11 root root 4096 8月   4 21:54 tmp
+drwxr-xr-x.  13 root root  155 8月   1 21:25 usr
+drwxr-xr-x.  19 root root  267 8月   4 20:28 var
+</code></pre>
+
+<p>#ls 加d只显示目录本身，ls不加d，列举目录下的内容</p>
+
+<pre><code>[root@test1 ~]# ls -l
+总用量 4
+-rw-------. 1 root root 1406 8月   1 21:30 anaconda-ks.cfg
+[root@test1 ~]# ls -lh
+总用量 4.0K
+-rw-------. 1 root root 1.4K 8月   1 21:30 anaconda-ks.cfg
+</code></pre>
+
+<p>#-h可以显示文件大小的单位</p>
+
+<h3 id="4-文件类型">4. 文件类型</h3>
+
+<pre><code>[root@test1 ~]# ls -la
+总用量 28
+dr-xr-x---.  3 root root  147 8月   2 21:13 . 
+dr-xr-xr-x. 17 root root  264 8月   3 21:19 ..
+-rw-------.  1 root root 1406 8月   1 21:30 anaconda-ks.cfg
+-rw-------.  1 root root 3613 8月   4 20:32 .bash_history
+-rw-r--r--.  1 root root   18 12月 29 2013 .bash_logout
+-rw-r--r--.  1 root root  176 12月 29 2013 .bash_profile
+-rw-r--r--.  1 root root  176 12月 29 2013 .bashrc
+-rw-r--r--.  1 root root  100 12月 29 2013 .cshrc
+drwx------.  2 root root   80 8月   3 23:07 .ssh
+-rw-r--r--.  1 root root  129 12月 29 2013 .tcshrc
+</code></pre>
+
+<p>#看文件权限的最左边，d开头，表示后面的是目录，-开头表示后面的是普通文件，b开头是块，l开头是软链接，s开头是通讯文件，c开头是字符串</p>
+
+<h3 id="5-alias别名">5.alias别名</h3>
+
+<pre><code>[root@test1 ~]# which ls   #查看ls的别名
+alias ls='ls --color=auto'
+	/usr/bin/ls    #这就是ls本身
+[root@test1 ~]# /usr/bin/ls  #用ls本身来做命令
+anaconda-ks.cfg
+[root@test1 ~]# ls   #ls是/usr/bin/ls的别名，所以2者效果一样
+anaconda-ks.cfg
+</code></pre>
+
+<pre><code>[root@test1 ~]# alias
+alias cp='cp -i'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+</code></pre>
+
+<p>#查看有别名的命令</p>
+
+<pre><code>[root@test1 ~]# alias lt='ls -lta'
+[root@test1 ~]# lt
+总用量 28
+-rw-------.  1 root root 3613 8月   4 20:32 .bash_history
+drwx------.  2 root root   80 8月   3 23:07 .ssh
+dr-xr-xr-x. 17 root root  264 8月   3 21:19 ..
+dr-xr-x---.  3 root root  147 8月   2 21:13 .
+-rw-------.  1 root root 1406 8月   1 21:30 anaconda-ks.cfg
+-rw-r--r--.  1 root root   18 12月 29 2013 .bash_logout
+-rw-r--r--.  1 root root  176 12月 29 2013 .bash_profile
+-rw-r--r--.  1 root root  176 12月 29 2013 .bashrc
+-rw-r--r--.  1 root root  100 12月 29 2013 .cshrc
+-rw-r--r--.  1 root root  129 12月 29 2013 .tcshrc
+</code></pre>
+
+<p>#alias lt=&lsquo;ls -lta&rsquo; 设置别名，如果要取消，用unalias</p>
+
+<pre><code>[root@test1 ~]# unalias lt
+[root@test1 ~]# lt
+-bash: lt: 未找到命令
+</code></pre>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="your_facebook_link">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="your_github_link">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="your_twitter_link">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2017 <i class="fa fa-heart" aria-hidden="true"></i> Hugo
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://c1awn.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://c1awn.github.io/js/main.js"></script>
+<script src="https://c1awn.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>
