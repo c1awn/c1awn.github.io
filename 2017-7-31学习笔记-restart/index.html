@@ -1,0 +1,167 @@
+    <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Hugo">
+		<meta name="description" content="Blog Description">
+		<meta name="generator" content="Hugo 0.25.1" />
+		<title> &middot; Blog Title</title>
+		<link rel="shortcut icon" href="https://c1awn.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://c1awn.github.io/css/style.css">
+		<link rel="stylesheet" href="https://c1awn.github.io/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://c1awn.github.io/css/font-awesome.min.css">
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://c1awn.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://c1awn.github.io/post'>Archive</a>
+	<a href='https://c1awn.github.io/tags'>Tags</a>
+	<a href='https://c1awn.github.io/about'>About</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>
+                        
+                    </h1>
+                    <h2 class="headline">
+                    Jan 1, 0001 00:00
+                    · 35 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    
+
+<ul>
+<li>## 学习任务
+一周第一次课（7月31日）<br />
+1.1 学习之初<br />
+1.2 约定<br />
+1.3 认识Linux<br />
+1.4 安装虚拟机<br />
+1.5 安装centos7<br /></li>
+
+<li><h2 id="学习笔记">学习笔记</h2>
+
+<h3 id="1-安装虚拟机vmware">1.安装虚拟机VMware</h3></li>
+
+<li><p>下载最新版VMware。</p></li>
+
+<li><p>安装VMware时，当弹出警告窗口的时候，不要点击确定，也不用按照网上安装.dll或者VC++。开始菜单运行输入‘%temp%’，在弹出的窗体中找到一个文件名中含‘=={132E3257-14F1-411A-BC6C-0CA32D3A9BC6}~setup==&lsquo;的文件夹，打开里面会看到有 xxx.msi的，运行就开始vmware的安装了。黄色字体有可能不一样，关键是文件夹名字后面是setup结尾。</p>
+
+<h3 id="2-安装centos7">2. 安装centos7</h3>
+
+<blockquote>
+<p>官方地址下载<br />
+<a href="http://isoredirect.centos.org/centos/7.3.1611/isos/x86_64/">http://isoredirect.centos.org/centos/7.3.1611/isos/x86_64/</a><br />
+也可下载阿铭老师的网盘镜像</p>
+</blockquote></li>
+</ul>
+
+<ol>
+<li>虚拟机添加镜像步骤如下：<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-7-31/26956572.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-7-31/30680168.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-7-31/37797760.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-7-31/6861402.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-7-31/22233232.jpg" alt="" /><br />
+其他设置尽量默认，硬盘大小20G即可。<br />
+设置完进光驱设置项，选择系统镜像，开机<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-7-31/86480944.jpg" alt="" /><br /></li>
+<li>开机进入安装界面后，选择最小化安装，其他尽量默认<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-7-31/75388996.jpg" alt="" /><br />
+<strong>下面是重点：</strong><br />
+安装磁盘选择&gt;自定义分区&gt;标准分区,点击+分区<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-1/73417029.jpg" alt="" /><br />
+&gt;分区建议：<br />
+/boot,200M，直接输入200，默认单位是M<br />
+swap,2000M<br />
+/,剩余分区，不填写数字默认剩余空间都分掉<br /></li>
+</ol>
+
+<p><img src="http://os9ep64t2.bkt.clouddn.com/17-8-1/7783317.jpg" alt="" /><br />
+提前开启网络<br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-1/93938202.jpg" alt="" /><br />
+<img src="http://os9ep64t2.bkt.clouddn.com/17-8-1/86923436.jpg" alt="" /><br />
+接下来开始安装，并设置下root密码，重启后用户名为root，密码为刚刚设置的，至此，系统安装完成。</p>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="your_facebook_link">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="your_github_link">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="your_twitter_link">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2017 <i class="fa fa-heart" aria-hidden="true"></i> Hugo
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://c1awn.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://c1awn.github.io/js/main.js"></script>
+<script src="https://c1awn.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

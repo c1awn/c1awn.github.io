@@ -12,6 +12,37 @@
     
     <item>
       <title></title>
+      <link>https://c1awn.github.io/2017-7-31%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-restart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://c1awn.github.io/2017-7-31%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-restart/</guid>
+      <description>## 学习任务 一周第一次课（7月31日）
+1.1 学习之初
+1.2 约定
+1.3 认识Linux
+1.4 安装虚拟机
+1.5 安装centos7
+ 学习笔记 1.安装虚拟机VMware 下载最新版VMware。
+ 安装VMware时，当弹出警告窗口的时候，不要点击确定，也不用按照网上安装.dll或者VC++。开始菜单运行输入‘%temp%’，在弹出的窗体中找到一个文件名中含‘=={132E3257-14F1-411A-BC6C-0CA32D3A9BC6}~setup==&amp;lsquo;的文件夹，打开里面会看到有 xxx.msi的，运行就开始vmware的安装了。黄色字体有可能不一样，关键是文件夹名字后面是setup结尾。
+2. 安装centos7  官方地址下载
+http://isoredirect.centos.org/centos/7.3.1611/isos/x86_64/
+也可下载阿铭老师的网盘镜像
+   虚拟机添加镜像步骤如下：
+其他设置尽量默认，硬盘大小20G即可。
+设置完进光驱设置项，选择系统镜像，开机
+ 开机进入安装界面后，选择最小化安装，其他尽量默认
+下面是重点：
+安装磁盘选择&amp;gt;自定义分区&amp;gt;标准分区,点击+分区
+&amp;gt;分区建议：
+/boot,200M，直接输入200，默认单位是M
+swap,2000M
+/,剩余分区，不填写数字默认剩余空间都分掉
+  提前开启网络
+接下来开始安装，并设置下root密码，重启后用户名为root，密码为刚刚设置的，至此，系统安装完成。</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://c1awn.github.io/2017-8-3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
